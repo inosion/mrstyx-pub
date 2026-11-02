@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>mrstyx</title>
+  
+<script type="module">
+import init, * as bindings from '/mrstyx-pub/mrstyx-client-90b5c07dfd52558b.js';
+const wasm = await init({ module_or_path: '/mrstyx-pub/mrstyx-client-90b5c07dfd52558b_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+  
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: #ECEFF3; }
+    canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    #loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #5E6878; font-family: sans-serif; }
+  </style>
+<link rel="modulepreload" href="/mrstyx-pub/mrstyx-client-90b5c07dfd52558b.js" crossorigin="anonymous" integrity="sha384-KlUBu/jsH2Nxja3zLCMoY7bYPJU8GpZRm335cnpn/B0JiXE2E1XOBjIh655F5miK"><link rel="preload" href="/mrstyx-pub/mrstyx-client-90b5c07dfd52558b_bg.wasm" crossorigin="anonymous" integrity="sha384-iSDaWl3sTjYf/GvqgJnVkAMPuJGfZe9gGbhB3kSOODpEawvyRdkzfQSEZEZpv75S" as="fetch" type="application/wasm"></head>
+<body>
+  <canvas id="mrstyx_canvas"></canvas>
+  <div id="loading">Loading mrstyx…</div>
+</body>
+</html>
